@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Hero from "./Components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
+import About from "./Components/About";
+import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
 import Navbar from "./Components/Navbar";
