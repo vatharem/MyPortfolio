@@ -23,10 +23,9 @@ const Contact = () => {
     setStatus("");
 
     try {
-      const API = process.env.REACT_APP_API_URL;
+       const API = process.env.REACT_APP_API_URL || "https://mayuri-portfolio-backend.onrender.com";
 
-      const res = await axios.post(`${API}/api/contact`, formData);
-
+      await axios.post(`${API}/api/contact`, formData);
       setStatus("✅ Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
 

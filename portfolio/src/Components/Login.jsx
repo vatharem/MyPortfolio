@@ -12,12 +12,11 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const API = process.env.REACT_APP_API_URL;
+      const API = process.env.REACT_APP_API_URL || "https://mayuri-portfolio-backend.onrender.com";
 
-      const res = await axios.post(`${API}/api/users/login`, {
-        email,
-        password,
-      });
+    
+
+      const res = await axios.post(`${API}/api/users/login`, {email,password,});
 
       if (res.data.status === "success") {
         localStorage.setItem("user", JSON.stringify(res.data.user));
