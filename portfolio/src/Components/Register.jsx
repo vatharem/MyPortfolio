@@ -25,13 +25,14 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:8080/api/users/register", {
+      const API = process.env.REACT_APP_API_URL;
+
+      const res = await axios.post(`${API}/api/users/register`, {
         name: user.name,
         email: user.email,
         password: user.password,
       });
 
-      // Backend returns object {status: "success"/"exists"/"error", message: "..."}
       if (res.data.status === "success") {
         setMessage("User registered successfully!");
         setTimeout(() => navigate("/"), 1000);

@@ -10,15 +10,17 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
-      const res = await axios.post("http://localhost:8080/api/users/login", {
+      const API = process.env.REACT_APP_API_URL;
+
+      const res = await axios.post(`${API}/api/users/login`, {
         email,
         password,
       });
 
-      // Backend returns {status: "success"/"fail", user: {...}}
       if (res.data.status === "success") {
-        localStorage.setItem("user", JSON.stringify(res.data.user)); // save user data
+        localStorage.setItem("user", JSON.stringify(res.data.user));
         setMessage("Login successful!");
         setTimeout(() => navigate("/hero"), 1000);
       } else {
