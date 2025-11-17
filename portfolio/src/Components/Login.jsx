@@ -12,7 +12,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const API = process.env.REACT_APP_API_URL || "https://mayuri-portfolio-backend.onrender.com";
+          const API = import.meta.env.VITE_API_URL || "https://mayuri-portfolio-backend.onrender.com";
+
 
     
 
